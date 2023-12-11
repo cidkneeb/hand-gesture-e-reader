@@ -1,0 +1,210 @@
+/* In book-reader.component.css */
+.book-viewer {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    overflow-y: auto;
+    height: 500px; /* Adjust as needed */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    white-space: pre-wrap; /* Preserves whitespace and line breaks */
+    position:relative;
+  }
+  
+  
+.handtracker-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .handtracker-container video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .handtracker-container canvas{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .handtracker-container .hand{
+    position: absolute;
+    background-color: rgba(0, 255, 0, 0.5);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    margin-top: -10px;
+  }
+  
+  .handtracker-container .hand.left{
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+  
+  .handtracker-container .hand.right{
+    background-color: rgba(0, 0, 255, 0.5);
+  }
+  
+  .handtracker-container .hand.closed{
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .handtracker-container .hand.open{
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .handtracker-container .hand.lost{
+    display: none;
+  }
+  
+  .handtracker-container .hand.lost.open{
+    display: block;
+  }
+  
+  .handtracker-container .hand.lost.closed{
+    display: block;
+  }
+  
+  .handtracker-container .hand.lost.left{
+    display: block;
+  }
+  
+  .handtracker-container .hand.lost.right{
+    display: block;
+  }
+  
+  .handtracker-container .hand.lost{
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .handtracker-container .hand.lost.open{
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  /* Centering the navigation buttons */
+.navigation {
+    text-align: center;
+    margin-top: 20px; /* Adjust as needed */
+  }
+  
+  button {
+    background-color: #555; /* Darker grey for buttons */
+    color: white; /* Text color */
+    border: 1px solid #777; /* Slightly lighter border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 10px 20px; /* Top/bottom and left/right padding */
+    font-size: 1rem; /* Adjust the font size as needed */
+    cursor: pointer; /* Cursor changes to pointer to indicate clickable */
+    transition: background-color 0.3s, transform 0.2s; /* Transition for hover effect */
+  }
+  
+  button:hover {
+    background-color: #666; /* Slightly lighter on hover */
+    transform: translateY(-2px); /* Subtle lift effect on hover */
+  }
+  
+  button:active {
+    transform: translateY(1px); /* Pressed-in effect on active click */
+  }
+
+  /* In book-reader.component.css */
+.book-viewer p.bookmarked {
+    border-left: 4px solid gold; /* Visual indicator for bookmarked page */
+    padding-left: 10px;
+  }
+  
+  .bookmarks {
+    position: absolute; /* Adjust as per layout */
+    right: 10px; /* Distance from the right edge */
+    top: 10px; /* Distance from the top */
+    background-color: #ffb3a6;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    max-height: 400px; /* Adjust as needed */
+    overflow-y: auto; /* Scrollable if many bookmarks */
+  }
+  
+  .bookmarks span {
+    cursor: pointer;
+    display: block;
+    margin-bottom: 5px;
+    padding: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .bookmarks span:hover {
+    background-color: #ffdede;
+  }
+  
+/* In book-reader.component.css */
+
+.book-viewer p.bookmarked::before {
+    content: "";
+    display: inline-block;
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+    background-image: url('/assets/bookmark.jpg'); /* Path to your bookmark icon */
+    background-size: cover;
+}
+/* In book-reader.component.css */
+.page-footer {
+    text-align: center;
+    margin-top: 15px; /* Adjust as needed */
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .book-viewer {
+    /* Existing styles, ensure it has a bottom margin or padding */
+    margin-bottom: 30px; /* Space above the footer */
+  }
+  
+  /* Continue with other styles */
+  
+  .bookmark-icon {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    width: 24px; /* Size of the icon */
+    height: 24px; /* Size of the icon */
+    background-image: url('/assets/bookmark.jpg'); /* Path to your bookmark icon */
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+/* In book-reader.component.css */
+.toc {
+    margin-bottom: 20px;
+  }
+  
+  .toc ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .toc li {
+    cursor: pointer;
+    margin-bottom: 5px;
+  }
+  
+  .toc li:hover {
+    text-decoration: underline;
+  }
+  
+
+  
+ 

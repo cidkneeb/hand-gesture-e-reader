@@ -1,0 +1,28 @@
+<div class="main-container">
+  <app-handtracker (onPrediction)="prediction($event)"></app-handtracker>
+  <div class="gesture-display">{{ gesture }}</div>
+
+  <!-- In book-reader.component.html -->
+  <div class="book-viewer">
+    <div class="bookmark-icon" *ngIf="isBookmarked()"></div>
+    <div class="toc">
+      <h3>Table of Contents</h3>
+      <ul>
+        <li *ngFor="let entry of tableOfContents" (click)="goToPage(entry.page)">{{ entry.title }}</li>
+      </ul>
+    </div>
+    <p>{{ pages[currentPage] }}</p>
+  </div>
+  <div class="page-footer">
+    Page {{ currentPage + 1 }} of {{ pages.length }}
+  </div>
+  <div class="navigation">
+    <button (click)="previousPage()">Previous Page</button>
+    <button (click)="nextPage()">Next Page</button>
+  </div>
+
+  <div class="bookmarks">
+    <span (click)="toggleBookmark()">Add Bookmark</span>
+    <span *ngFor="let page of bookmarks" (click)="goToPage(page)">Page {{ page + 1 }}</span>
+  </div>
+</div>
