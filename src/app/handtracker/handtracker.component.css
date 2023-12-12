@@ -13,6 +13,7 @@
   border-radius: 10px;
   overflow: hidden;
 }
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap');
 
 button {
   background-color: #555;
@@ -23,6 +24,7 @@ button {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
+  font-family: 'Comfortaa', sans-serif;
 }
 
 button:hover {

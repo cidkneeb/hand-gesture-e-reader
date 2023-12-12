@@ -1,8 +1,8 @@
 <div class="main-container">
   <app-handtracker (onPrediction)="prediction($event)"></app-handtracker>
   <div class="sidebar" [class.active]="isSidebarActive">
-    <button (click)="toggleSidebar()">Close Menu</button>
-    <ul>
+    <button class="close-menu" (click)="toggleSidebar()">x</button>
+    <ul class="gesture-list">
       <li>Open Hand and Point: Next Page</li>
       <li>Close Hand and Point: Previous Page</li>
       <li>Two Open Hands: Open Gesture Menu</li>
@@ -14,8 +14,8 @@
       <li>Two Hands Pointing: Close Gesture Menu</li>
     </ul>
   </div>
-  <button class="gesture-menu-btn" (click)="toggleSidebar()">Gesture Menu</button>
-  <div class="bookmarks">
+  <button class="gesture-menu-btn" *ngIf="!isSidebarActive" (click)="toggleSidebar()">Gesture List</button>
+  <div class="bookmarks" [class.hidden]="isSidebarActive">
     <span (click)="toggleBookmark()">Bookmark</span>
     <span *ngFor="let page of bookmarks" (click)="goToPage(page)">Page {{ page + 1 }}</span>
   </div>

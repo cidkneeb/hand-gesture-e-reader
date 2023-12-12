@@ -3,14 +3,11 @@
         <app-handtracker (onPrediction)="prediction($event)"></app-handtracker>
     </div>
 
-    <!-- <div class="gesture-display">{{ gesture }}</div> -->
-
     <div class="books"> 
-        <!-- Your book elements inside the .books container -->
         <div class="book" *ngFor="let book of books; let i = index" 
             [class.selected]="i === selectedBookIndex"
             [style.backgroundImage]="'url(' + book.cover + ')'"
             (click)= "openBook(book.id)">
         </div>
-    </div> <!-- This is where the .books container ends -->
+    </div> 
 </div>
