@@ -14,9 +14,9 @@ export class HomePageComponent implements OnInit{
   
   books = [
     {id: '1', title: 'A Christmas Carol', cover: 'assets/covers/a-christmas-carol.jpg', path: 'assets/books/a-christmas-carol.txt'},
-    {id: '2', title: 'Oliver Twist', cover: 'assets/covers/oliver-twist.jpg', path: 'assets/books/oliver-twist.txt'},
+    {id: '4', title: 'Oliver Twist', cover: 'assets/covers/oliver-twist.jpg', path: 'assets/books/oliver-twist.txt'},
     {id: '3', title: 'Great Expectations', cover: 'assets/covers/great-expectations.jpg', path: 'assets/books/great-expectations.txt'},
-    {id: '4', title: 'A Tale of Two Cities', cover: 'assets/covers/tale-of-two.jpg', path: 'assets/books/a-tale-of-two-cities.txt'}
+    {id: '2', title: 'A Tale of Two Cities', cover: 'assets/covers/tale-of-two.jpg', path: 'assets/books/a-tale-of-two-cities.txt'}
   ]
   constructor(private router: Router) { }
 
@@ -27,6 +27,13 @@ export class HomePageComponent implements OnInit{
     // Correct way to navigate with route parameters
     this.router.navigate(['/book', bookId]);
   }
+
+  openRandomBook(){
+    const randomIndex = Math.floor(Math.random() * this.books.length);
+    const randomBook = this.books[randomIndex];
+    // Assuming you have a method to open a book by its ID:
+    this.openBook(randomBook.id);
+  }
   
   prediction(event: PredictionEvent){
     this.gesture = event.getPrediction();
@@ -35,6 +42,9 @@ export class HomePageComponent implements OnInit{
     }
     if (event.prediction == 'Open Hand' && this.selectedBookIndex != null){
       this.openBook(this.books[this.selectedBookIndex].id);
+    }
+    if (event.prediction == 'Closed Hand'){
+      this.openRandomBook();
     }
   }
 
