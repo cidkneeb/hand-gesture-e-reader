@@ -11,10 +11,11 @@ export class BookReaderComponent implements OnInit {
   bookContent: string = '';
   currentPage: number = 0;
   pages: string[] = [];
-  wordsPerPage: number = 300;  // Adjust as needed
+  wordsPerPage: number = 230;
   gesture: String = "";
   bookmarks: Set<number> = new Set();
-  tableOfContents: { title: string, page: number }[] = [];
+  isSidebarActive: boolean = false;
+
 
   constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) {}
 
@@ -23,6 +24,10 @@ export class BookReaderComponent implements OnInit {
     if (bookId) {
       this.loadBookContent(`assets/books/${bookId}.txt`);
     }
+  }
+
+  toggleSidebar(){
+    this.isSidebarActive = !this.isSidebarActive;
   }
 
   toggleBookmark(){
@@ -39,24 +44,11 @@ export class BookReaderComponent implements OnInit {
     this.http.get(path, { responseType: 'text' })
       .subscribe(data => {
         this.splitIntoPages(data);
-        this.extractTableOfContents(data);
       }, error => {
         console.error('Error loading book content:', error);
       });
   }
-
-  extractTableOfContents(data: string) {
-    const lines = data.split('\n');
-    let currentPage = 0;
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i];
-      if (line.startsWith('CHAPTER')) {
-        this.tableOfContents.push({ title: line, page: currentPage });
-      } else {
-        currentPage++;
-      }
-    }
-  }
+  
 
   splitIntoPages(data: string) {
     const words = data.split(/\s+/);
@@ -81,6 +73,10 @@ export class BookReaderComponent implements OnInit {
   goToPage(pageNumber: number) {
     this.currentPage = pageNumber;
   }
+
+  backToLibrary(){
+    this.router.navigate(['/']);
+  }
   
 
   prediction(event: PredictionEvent) {
@@ -93,5 +89,20 @@ export class BookReaderComponent implements OnInit {
     if (this.gesture == 'Hand Pinching') {
       this.toggleBookmark();
     }
-  }
+    if (this.gesture == 'Two Closed Hands') {
+      this.backToLibrary();
+    }
+    if (this.gesture == "Two Hands Pinching"){
+      if (this.bookmarks.has(this.currentPage)){
+        this.bookmarks.delete(this.currentPage);
+      }
+    }
+    if (this.gesture == "Two Open Hands"){
+      this.toggleSidebar();
+      this.isSidebarActive = true;
+    }
+    if (this.gesture == "Two Hands Pointing"){
+      this.isSidebarActive = false;
+    }
+}
 }

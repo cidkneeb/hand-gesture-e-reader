@@ -1,37 +1,44 @@
-
 :host {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .videobox{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    background-color: #000;
-    border-radius: 10px;
-    overflow: hidden;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  button {
-    background-color: #555; /* Darker grey for buttons */
-    color: white; /* Text color */
-    border: 1px solid #777; /* Slightly lighter border */
-    border-radius: 4px; /* Rounded corners */
-    padding: 10px 20px; /* Top/bottom and left/right padding */
-    font-size: 1rem; /* Adjust the font size as needed */
-    cursor: pointer; /* Cursor changes to pointer to indicate clickable */
-    transition: background-color 0.3s, transform 0.2s; /* Transition for hover effect */
-  }
-  
-  button:hover {
-    background-color: #666; /* Slightly lighter on hover */
-    transform: translateY(-2px); /* Subtle lift effect on hover */
-  }
-  
-  button:active {
-    transform: translateY(1px); /* Pressed-in effect on active click */
-  }
-  
-  
+.videobox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-color: #000;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+button {
+  background-color: #555;
+  color: white;
+  border: 1px solid #777;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #666;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.gesture-display-button {
+  background-color: #777; /* Slightly different color to indicate non-clickability */
+  color: white;
+  border: 1px solid #999;
+  cursor: default; /* Default cursor to indicate non-clickability */
+  pointer-events: none; /* Disable pointer events to prevent hover and click effects */
+  opacity: 0.7; /* Slightly transparent to indicate non-interactive */
+}

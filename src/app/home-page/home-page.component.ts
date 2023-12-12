@@ -34,7 +34,7 @@ export class HomePageComponent implements OnInit{
       this.selectedBookIndex = (this.selectedBookIndex + 1) % this.books.length;
     }
     if (event.prediction == 'Open Hand' && this.selectedBookIndex != null){
-      this.openBook(this.books[this.selectedBookIndex].path);
+      this.openBook(this.books[this.selectedBookIndex].id);
     }
   }
 

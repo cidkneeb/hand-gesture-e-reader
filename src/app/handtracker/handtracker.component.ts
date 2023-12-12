@@ -11,6 +11,7 @@ export class HandtrackerComponent implements OnInit {
   @Output() onPrediction = new EventEmitter<PredictionEvent>();
   @ViewChild('htvideo') video: ElementRef;
   
+  
   /* 
   SAMPLERATE determines the rate at which detection occurs (in milliseconds)
   500, or one half second is about right, but feel free to experiment with faster
@@ -18,7 +19,7 @@ export class HandtrackerComponent implements OnInit {
   */
   SAMPLERATE: number = 500; 
   
-  detectedGesture:string = "None"
+  detectedGesture:string = "Gesture";
   width:string = "400"
   height:string = "400"
 
@@ -111,10 +112,6 @@ export class HandtrackerComponent implements OnInit {
             if (pinching > 1) this.detectedGesture = "Two Hands Pinching";
             else if(pinching == 1) this.detectedGesture = "Hand Pinching";
 
-            if (openhands == 1 && closedhands == 1){
-              this.detectedGesture = "Open and Closed Hands";
-              this.onPrediction.emit(new PredictionEvent(this.detectedGesture));
-            }
             if (openhands == 1 && pointing == 1){
               this.detectedGesture = "Open and Pointing";
               this.onPrediction.emit(new PredictionEvent(this.detectedGesture));

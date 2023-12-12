@@ -1,16 +1,27 @@
 <div class="main-container">
   <app-handtracker (onPrediction)="prediction($event)"></app-handtracker>
-  <div class="gesture-display">{{ gesture }}</div>
-
+  <div class="sidebar" [class.active]="isSidebarActive">
+    <button (click)="toggleSidebar()">Close Menu</button>
+    <ul>
+      <li>Open Hand and Point: Next Page</li>
+      <li>Close Hand and Point: Previous Page</li>
+      <li>Two Open Hands: Open Gesture Menu</li>
+      <li>Two Closed Hands: Return to Library</li>
+      <li>Pinch: Add Bookmark</li>
+      <li>Two Hand Pinch: Delete Bookmark</li>
+      <li>Point: Select book from library</li>
+      <li> Open Hand: Select Book</li>
+      <li>Two Hands Pointing: Close Gesture Menu</li>
+    </ul>
+  </div>
+  <button class="gesture-menu-btn" (click)="toggleSidebar()">Gesture Menu</button>
+  <div class="bookmarks">
+    <span (click)="toggleBookmark()">Bookmark</span>
+    <span *ngFor="let page of bookmarks" (click)="goToPage(page)">Page {{ page + 1 }}</span>
+  </div>
   <!-- In book-reader.component.html -->
   <div class="book-viewer">
     <div class="bookmark-icon" *ngIf="isBookmarked()"></div>
-    <div class="toc">
-      <h3>Table of Contents</h3>
-      <ul>
-        <li *ngFor="let entry of tableOfContents" (click)="goToPage(entry.page)">{{ entry.title }}</li>
-      </ul>
-    </div>
     <p>{{ pages[currentPage] }}</p>
   </div>
   <div class="page-footer">
@@ -18,11 +29,7 @@
   </div>
   <div class="navigation">
     <button (click)="previousPage()">Previous Page</button>
+    <button (click)="backToLibrary()">Home</button>
     <button (click)="nextPage()">Next Page</button>
-  </div>
-
-  <div class="bookmarks">
-    <span (click)="toggleBookmark()">Add Bookmark</span>
-    <span *ngFor="let page of bookmarks" (click)="goToPage(page)">Page {{ page + 1 }}</span>
   </div>
 </div>

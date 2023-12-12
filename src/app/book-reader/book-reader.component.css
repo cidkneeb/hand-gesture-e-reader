@@ -1,103 +1,42 @@
-/* In book-reader.component.css */
+
+.main-container{
+  /* Set the background image */
+  background-image: url('/assets/open-book.jpg');
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the image */
+  background-repeat: repeat-y; 
+  background-color: #605f5f;
+  padding-top: 50px; /* Adjust as needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 20px;
+}
+
 .book-viewer {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    overflow-y: auto;
-    height: 500px; /* Adjust as needed */
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 18px;
-    line-height: 1.6;
-    color: #333;
-    white-space: pre-wrap; /* Preserves whitespace and line breaks */
-    position:relative;
-  }
-  
-  
-.handtracker-container{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .handtracker-container video{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .handtracker-container canvas{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .handtracker-container .hand{
-    position: absolute;
-    background-color: rgba(0, 255, 0, 0.5);
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    margin-left: -10px;
-    margin-top: -10px;
-  }
-  
-  .handtracker-container .hand.left{
-    background-color: rgba(255, 0, 0, 0.5);
-  }
-  
-  .handtracker-container .hand.right{
-    background-color: rgba(0, 0, 255, 0.5);
-  }
-  
-  .handtracker-container .hand.closed{
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  
-  .handtracker-container .hand.open{
-    background-color: rgba(255, 255, 255, 0.5);
-  }
-  
-  .handtracker-container .hand.lost{
-    display: none;
-  }
-  
-  .handtracker-container .hand.lost.open{
-    display: block;
-  }
-  
-  .handtracker-container .hand.lost.closed{
-    display: block;
-  }
-  
-  .handtracker-container .hand.lost.left{
-    display: block;
-  }
-  
-  .handtracker-container .hand.lost.right{
-    display: block;
-  }
-  
-  .handtracker-container .hand.lost{
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  
-  .handtracker-container .hand.lost.open{
-    background-color: rgba(255, 255, 255, 0.5);
-  }
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 20px;
+  overflow-y: auto;
+  height: 400px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  line-height: 1.6;
+  background-color: #fffefeb2;
+  color: #333;
+  white-space: pre-wrap; /* Preserves whitespace and line breaks */
+  width: 780px;
+  border-radius: 5px;
+}
   /* Centering the navigation buttons */
 .navigation {
     text-align: center;
-    margin-top: 20px; /* Adjust as needed */
+    margin-top: 10px; /* Adjust as needed */
+  }
+
+.navigation button.back-to-library {
+    margin-right: auto; /* Pushes the button to the left */
   }
   
   button {
@@ -120,25 +59,20 @@
     transform: translateY(1px); /* Pressed-in effect on active click */
   }
 
-  /* In book-reader.component.css */
-.book-viewer p.bookmarked {
-    border-left: 4px solid gold; /* Visual indicator for bookmarked page */
-    padding-left: 10px;
-  }
-  
-  .bookmarks {
+.bookmarks {
     position: absolute; /* Adjust as per layout */
-    right: 10px; /* Distance from the right edge */
-    top: 10px; /* Distance from the top */
+    right: 20px; /* Distance from the right edge */
+    top: calc(175px + 60px); /* Distance from the top */
     background-color: #ffb3a6;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     max-height: 400px; /* Adjust as needed */
     overflow-y: auto; /* Scrollable if many bookmarks */
-  }
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
   
-  .bookmarks span {
+.bookmarks span {
     cursor: pointer;
     display: block;
     margin-bottom: 5px;
@@ -146,65 +80,61 @@
     transition: background-color 0.3s;
   }
   
-  .bookmarks span:hover {
-    background-color: #ffdede;
+.bookmarks span:hover {
+    background-color: #ff8c7a;
+    transform: translateY(-2px);
   }
-  
-/* In book-reader.component.css */
 
-.book-viewer p.bookmarked::before {
-    content: "";
-    display: inline-block;
-    margin-right: 10px;
-    width: 24px;
-    height: 24px;
-    background-image: url('/assets/bookmark.jpg'); /* Path to your bookmark icon */
-    background-size: cover;
-}
-/* In book-reader.component.css */
 .page-footer {
     text-align: center;
-    margin-top: 15px; /* Adjust as needed */
     font-size: 16px;
-    color: #666;
+    color: #030303;
+    /* margin-top: 0; */
+    /* padding: 45px; */
   }
   
-  .book-viewer {
-    /* Existing styles, ensure it has a bottom margin or padding */
-    margin-bottom: 30px; /* Space above the footer */
-  }
-  
-  /* Continue with other styles */
-  
-  .bookmark-icon {
-    position: absolute;
-    top: 10px; /* Adjust as needed */
-    right: 10px; /* Adjust as needed */
-    width: 24px; /* Size of the icon */
-    height: 24px; /* Size of the icon */
-    background-image: url('/assets/bookmark.jpg'); /* Path to your bookmark icon */
+.bookmark-icon {
+    position: relative;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    background-image: url('/assets/bookmark.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-  }
-/* In book-reader.component.css */
-.toc {
-    margin-bottom: 20px;
-  }
+}
   
-  .toc ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .toc li {
-    cursor: pointer;
-    margin-bottom: 5px;
-  }
-  
-  .toc li:hover {
-    text-decoration: underline;
-  }
-  
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  left: -250px; /* Hidden initially */
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background: #f8f8f8;
+  box-shadow: 2px 0px 5px rgba(0,0,0,0.3);
+  transition: left 0.3s;
+  padding: 20px;
+}
 
-  
+.sidebar.active {
+  left: 0; /* Show sidebar */
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+/* Gesture Menu Button */
+.gesture-menu-btn {
+  /* Style the button */
+  position: fixed;
+  left: 20px;
+  top: 20px;
+}
  
