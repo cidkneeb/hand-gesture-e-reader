@@ -43,9 +43,5 @@ export class HomePageComponent implements OnInit{
     if (event.prediction == 'Open Hand' && this.selectedBookIndex != null){
       this.openBook(this.books[this.selectedBookIndex].id);
     }
-    if (event.prediction == 'Closed Hand'){
-      this.openRandomBook();
     }
   }
-
-}
