@@ -77,27 +77,3 @@ body {
   width: 25%;
   height: 25%;
 }
-.popup-bubble {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: #f9b2b2; /* Light yellow background */
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 0.9rem;
-  z-index: 10; /* Ensure it appears above other elements */
-  opacity: 0.9;
-}
-
-/* Add a small arrow to the bubble */
-.popup-bubble::after {
-  content: "";
-  position: absolute;
-  bottom: -20px; /* Adjust as needed */
-  left: 20px; /* Adjust to position the arrow */
-  border-width: 10px;
-  border-style: solid;
-  border-color: #f9b2b2 transparent transparent transparent;
-}
